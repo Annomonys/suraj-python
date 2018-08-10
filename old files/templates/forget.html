@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="elelment">
+	<h2>Reset Password Form</h2>
+	<div class="element-main">
+		<h1>Forgot Password</h1>
+		<p> Enter Your Email id</p>
+        <form id="forget" class="" role="form" method = "POST" action = "/forget">
+            {{ form.hidden_tag() }} 
+            <div>
+                {{ form.email (class="form-control",placeholder="username or email")}}
+                    <!-- <input type="text" value="Your e-mail address" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Your e-mail address';}"> -->
+                {{ form.submit( class = "btn-primary btn btn-success")}}
+            </div>
+		</form>
+	</div>
+</div>
+
+
+{% endblock %}

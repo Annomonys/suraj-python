@@ -1,0 +1,185 @@
+{% extends "layout.html" %}
+
+{% block content %}
+    <!-- <main class="container signup-section">
+        <div class="section-content">
+            <h2>Create an account</h2>
+
+            <form method="POST" action="/signup">
+                {{ form.hidden_tag() }}
+
+                <div class="form-group">
+                    {{ form.first_name.label }}
+
+                    {% if form.first_name.errors%}
+                        {% for error in form.first_namae.errors %}
+                            <p class="error-message">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {{ form.first_name }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.last_name.label }}
+
+                    {% if form.last_name.errors%}
+                        {% for error in form.last_namae.errors %}
+                             <p class="error-message">{{ error }}</p>
+                         {% endfor %}
+                     {% endif %}
+
+                    {{ form.last_name }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.email.label }}
+
+                    {% if form.email.errors%}
+                        {% for error in form.email.errors %}
+                            <p class="error-message">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {{ form.email }}
+                </div>
+
+                <div class="form-group">
+                    {{ form.password.label }}
+
+                    {% if form.password.errors%}
+                        {% for error in form.password.errors %}
+                            <p class="error-message">{{ error }}</p>
+                        {% endfor %}
+                    {% endif %}
+
+                    {{ form.password }}
+                </div>
+                
+                {{ form.submit(class="btn-primary")}}
+            </form>
+        </div>
+    </main> -->
+
+   
+
+<main class="container signup-section">
+    <div class="section-content">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <form method="POST" action="/signup">
+                    {{ form.hidden_tag() }}
+
+                    <h2>Please Sign Up <small>It's free and always will be.</small></h2>
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                {% if form.first_name.errors%}
+                                    {% for error in form.first_name.errors %}
+                                        <p class="error-message">{{ error }}</p>
+                                    {% endfor %}
+                                {% endif %}
+            
+                                {{ form.first_name (class="form-control input-lg", placeholder="First Name")}}
+                                <!-- <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1"> -->
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                {% if form.last_name.errors%}
+                                    {% for error in form.last_name.errors %}
+                                        <p class="error-message">{{ error }}</p>
+                                    {% endfor %}
+                                {% endif %}
+            
+                                {{ form.last_name (class="form-control input-lg", placeholder="Last Name")}}
+                                <!-- <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <!-- <input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3"> -->
+                    </div>
+                    <div class="form-group">
+                        {% if form.email.errors%}
+                            {% for error in form.email.errors %}
+                                <p class="error-message">{{ error }}</p>
+                            {% endfor %}
+                        {% endif %}
+
+                        {{ form.email (class="form-control input-lg", placeholder="Email Address")}}
+                        <!-- <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4"> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                    {{ form.password.label }}
+
+                                    {% if form.password.errors%}
+                                        {% for error in form.password.errors %}
+                                            <p class="error-message">{{ error }}</p>
+                                        {% endfor %}
+                                    {% endif %}
+                
+                                    {{ form.password (class="form-control input-lg",placeholder="Password", id="password")}}
+                                <!-- <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5"> -->
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6">
+                            <div class="form-group">
+                                <!-- <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6"> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-4 col-sm-3 col-md-3">
+                            <span class="button-checkbox">
+                                <button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
+                                <!-- <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1"> -->
+                            </span>
+                        </div>
+                        <div class="col-xs-8 col-sm-9 col-md-9">
+                            By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+                        </div>
+                    </div>
+                    
+                    <hr class="colorgraph">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6">
+                            {{ form.submit(class="btn btn-primary btn-block btn-lg")}}
+                            <!-- <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"> -->
+                        </div>
+                        <div class="col-xs-12 col-md-6"><a href="{{url_for('login') }}" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+</main>
+
+
+{% endblock %} 
