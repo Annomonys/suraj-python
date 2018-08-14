@@ -32,6 +32,7 @@ def home():
     posts = Post.query.order_by(Post.date_posted.desc()).paginate(page=page, per_page=1)
     return render_template('home-new.html', posts = posts)
 
+
 # About Page
 @app.route("/about")
 def about():
